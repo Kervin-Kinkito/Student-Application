@@ -1,0 +1,22 @@
+<h1>Listing Students</h1>
+<br><br>
+
+<%= link_to 'Create New Student', new_student_path %>
+<br><br>
+
+<Table>
+    <tr>
+        <th>Names</th>
+        <th>Program</th>
+        <th>Year Level</th>
+    </tr>
+
+    <% @students.each do |student| %>
+    <tr>
+        <td><%= student.name %></td>
+        <td><%= student.program %></td>
+        <td><%= student.year_level %></td>
+        <td><%= link_to 'Show', student_path(student) %></td>
+    </tr>
+<% end %>
+</table>

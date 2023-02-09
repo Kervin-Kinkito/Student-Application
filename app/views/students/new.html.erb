@@ -1,0 +1,39 @@
+<h1>New Student</h1>
+
+<%= form_with scope: :student, url: students_path, local: true do |form| %>
+<% if @student.errors.any? %>
+<div id="error_explanation">
+<h2>
+    <%= pluralize(@student.errors.count, "error") %>
+    Prohibited this student from being created:
+</h2>
+<ul>
+ <% @student.errors.full_messages.each do |msg| %>
+ <li> <%= msg %> </li>
+ <% end %>
+</ul>
+</div>
+<% end %>
+<p>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+</p>
+
+<p>
+    <%= form.label :program %>
+    <%= form.text_field :program %>
+</p>
+
+<p>
+    <%= form.label :year_level %>
+    <%= form.text_field :year_level %>
+</p>
+
+<p>
+    <%= form.submit %>
+</p>
+
+<% end %>
+<br>
+
+<%= link_to 'Back', students_path %>
